@@ -1,0 +1,81 @@
+server:
+  port: 8090
+  compression.enabled: true
+
+spring:
+  application.name: Yellow-pages
+  datasource:
+    username: yellowpages
+    password: yp@user
+    url: jdbc:mysql://ypdb.cyo3ybumgjqv.ap-south-1.rds.amazonaws.com:3306/testypdb
+    name: testypdb
+    test-on-idle: true
+    validation-query: SELECT 1
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        enable_lazy_load_no_trans: true
+  http:
+    multipart:
+      max-file-size: 10MB
+      enabled: true
+
+
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+    hibernate: ERROR
+  path: ./logs
+  file: ${logging.path}/yellowpages.log
+  pattern.file: EVENTTIME=%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n
+
+yellowpages:
+  rest:
+    timezone: UTC
+  popular:
+    cities.toList: Delhi,Mumbai,Hyderabad,Kolkata,Chennai,Bengaluru
+  categories.toList: Furniture,Properties,Vehicles,Electronics & Home Appliances,Pets,Kids,Services,Jobs,Events & Software,Fashion & Beauty
+
+
+cors:
+  allowed:
+    origins: http://localhost:4200
+    methods: GET,POST,PUT,DELETE,HEAD,OPTIONS
+    header: Access-Control-Allow-Origin, Content-Disposition, Access-Control-Expose-Headers,Access-Control-Allow-Headers,Access-Control-Allow-Credentials
+  exposed.headers: Access-Control-Allow-Origin, Content-Disposition, Access-Control-Expose-Headers,Access-Control-Allow-Headers,Access-Control-Allow-Credentials
+
+jwt:
+  header: Authorization
+  secret: mySecret
+  expiration: 7200000
+  route:
+    authentication:
+      path: /auth
+      pathignore: /api/yellow-pages/v1/**
+      refresh: /refresh
+
+OTP:
+  expire.mins: 5
+  api_key: stXGxi1UEAE-VkKsuqwFcjdxru5DwvAHpekFuVIP05
+  sender: TXTLCL
+  suffix_message: is your OPT and will expire in 5 mins
+  generator.endpoint: https://api.textlocal.in/send/?
+
+security.ignored: /**
+spring.security.enabled: false
+management.security.enabled: false
+security.basic.enabled: false
+
+aws:
+  bucket:
+    name: yellow-pages-pictures
+    url: https://s3.ap-south-1.amazonaws.com
+    accessKey: AKIAIWIGNI4TWVF3B7ZA
+    secretKey: 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

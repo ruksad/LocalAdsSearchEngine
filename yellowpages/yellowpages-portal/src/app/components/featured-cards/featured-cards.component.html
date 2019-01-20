@@ -1,0 +1,96 @@
+<section class="service">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
+
+        <ngu-carousel [inputs]="carouselTile">
+          <ngu-tile NguCarouselItem *ngFor="let card of allFeaturedCards">
+            <section class="">
+                <div class="sam">
+                  <h1> <img src={{card.image}} alt=""></h1>
+                  <h2>{{card.name}}</h2>
+                  <h3>{{card.description}}</h3>
+                  <p> <a href="javascript:void(0)">{{card.price}}</a> </p>
+                </div>
+            </section>
+          </ngu-tile>
+
+          <button NguCarouselPrev class='leftRs'>&lt;</button>
+          <button NguCarouselNext class='rightRs'>&gt;</button>
+        </ngu-carousel>
+        <!-- customer-logos slider -->
+        <!-- <section *ngIf="allFeaturedCards" class="customer-logos slider"  ></section> -->
+        <!--  <section  class="customer-logos slider">
+          <div class="slide" *ngFor="let card of allFeaturedCards">
+            <div class="sam">
+              <h1><img src={{card.image}} alt=""></h1>
+              <h2>{{card.name}}</h2>
+              <h3>{{card.description}}</h3>
+              <p><a href="javascript:void(0)">{{card.price}}</a></p>
+            </div>
+          </div> -->
+        <!-- <div class="slide">
+            <div class="sam">
+              <h1><img src="assets/images/rama.jpg" alt=""></h1>
+              <h2>Rama Apartments</h2>
+              <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</h3>
+              <p><a href="javascript:void(0)">RS : 25,00,000/-</a></p>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="sam">
+              <h1><img src="assets/images/oneplus.jpg" alt=""></h1>
+              <h2>Oneplus</h2>
+              <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</h3>
+              <p><a href="javascript:void(0)">RS : 35,000/-</a></p>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="sam">
+              <h1><img src="assets/images/painting.jpg" alt=""></h1>
+              <h2>Painting</h2>
+              <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</h3>
+              <p><a href="javascript:void(0)">RS : 6,800/-</a></p>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="sam">
+              <h1><img src="assets/images/samsung.jpg" alt=""></h1>
+              <h2>Samsung Galaxy j7</h2>
+              <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</h3>
+              <p><a href="javascript:void(0)">RS : 25,000/-</a></p>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="sam">
+              <h1><img src="assets/images/rama.jpg" alt=""></h1>
+              <h2>Rama Apartments</h2>
+              <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</h3>
+              <p><a href="javascript:void(0)">RS : 25,00,000/-</a></p>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="sam">
+              <h1><img src="assets/images/oneplus.jpg" alt=""></h1>
+              <h2>Oneplus</h2>
+              <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</h3>
+              <p><a href="javascript:void(0)">RS : 35,000/-</a></p>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="sam">
+              <h1><img src="assets/images/painting.jpg" alt=""></h1>
+              <h2>Painting</h2>
+              <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</h3>
+              <p><a href="javascript:void(0)">RS : 6,800/-</a></p>
+            </div>
+          </div> -->
+        <!-- </section> -->
+        <!-- customer-logos slider end-->
+
+      </div>
+    </div>
+  </div>
+  <!--.container-->
+</section>

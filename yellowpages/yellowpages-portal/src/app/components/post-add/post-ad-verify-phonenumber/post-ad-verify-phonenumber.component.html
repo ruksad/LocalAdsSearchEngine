@@ -1,0 +1,54 @@
+<div data-toggle="modal" data-target="#phoneModal" #verifyOTPModel></div>
+<div class="phoneModal-popup" >
+  <div class="modal fade" id="phoneModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="modal-header bgr">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" #closeOtpModelpopup [hidden]="true"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title text-center phone_head" id="mySmallModalLabel">Please verify Mobile Number via OTP</h4>
+          </div>
+          <div class="store-find-block">
+            <div class="mydivs">
+              <div class="store-find">
+                <div class="store-head">
+                  <h5>OTP has sent to {{userPhoneNumber}}</h5>
+                </div>
+                <!-- Text input-->
+                <div class="store-form">
+                  <form>
+                    <div class="row">
+                      <div class="form-group">
+                        <label class="col-md-12 control-label sr-only" for="Phone">OTP</label>
+                        <div class="col-md-12">
+                          <input id="Phone" name="otp" type="number" placeholder="Enter OTP" [(ngModel)]="otpNumber" class="form-control input-md dlr" required>
+                        </div>
+                      </div>
+                      <div *ngIf="!disableResendAfterOneClick" (click)="resendOtp(userPhoneNumber)">click here to resend an OTP</div>
+                      <!-- <div class="form-group">
+                        <label class="col-md-12 control-label sr-only" for="Phone">Email</label>
+                        <div class="col-md-12">
+                          <input id="Email" name="Email" type="text" placeholder="Your Email (optional)" class="form-control input-md dlr" required="">
+                        </div>
+                      </div> -->
+                      
+                      <!-- Button -->
+                      <div class="form-group">
+                        <div class="col-md-12">
+                          <button id="generate_otp" name="next" class="btn btn-primary btn-block btn-sm dlr" (click)="validateOtp(userPhoneNumber,otpNumber)">Submit</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!-- next div code --> 
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

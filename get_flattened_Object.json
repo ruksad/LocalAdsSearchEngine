@@ -1,0 +1,173 @@
+{
+  "name": "FULLY MAINTAINED MARUTI SUZUKI SWIFT VDI 2008",
+  "description": "FULLY MAINTAINED MARUTI SUZUKI SWIFT VDI 2008",
+  "objectId": 60000019,
+  "parentId": 60000018,
+  "parametersForAttribute": [
+    {
+      "name": "REGISTERED WITH US",
+      "description": "REGISTERED WITH US",
+      "attributeId": 50000010,
+      "parameterValues": [
+        "1+ YEAR"
+      ]
+    },
+    {
+      "name": "ADVERTIZER",
+      "description": "ADVERTIZER",
+      "attributeId": 50000011,
+      "parameterValues": [
+        "ROHIT"
+      ]
+    },
+    {
+      "name": "YEAR",
+      "description": "YEAR",
+      "attributeId": 50000008,
+      "parameterValues": [
+        null
+      ]
+    },
+    {
+      "name": "CONDITION",
+      "description": "CONDITION",
+      "attributeId": 50000009,
+      "parameterValues": [
+        null
+      ]
+    },
+    {
+      "name": "MESSAGE",
+      "description": "MESSAGE",
+      "attributeId": 50000014,
+      "parameterValues": [
+        "Hi I am interested in this"
+      ]
+    },
+    {
+      "name": "YOUR_EMAIL",
+      "description": "YOUR_EMAIL",
+      "attributeId": 50000015,
+      "parameterValues": [
+        "PRATAP@GMAIL.COM"
+      ]
+    },
+    {
+      "name": "TELEPHONE",
+      "description": "TELEPHONE",
+      "attributeId": 50000013,
+      "parameterValues": [
+        "9836526410"
+      ]
+    },
+    {
+      "name": "ADDRESS",
+      "description": "ADDRESS",
+      "attributeId": 50000002,
+      "parameterValues": [
+        "MAGARPATTA,PUNE"
+      ]
+    },
+    {
+      "name": "DESCRIPTION",
+      "description": "DESCRIPTION OF OBJECT",
+      "attributeId": 50000003,
+      "parameterValues": [
+        "Selling recently fully maintained/repaired(scheduled),all new Bridgestone tyres,Battery - Maruti Suzuki Swift VDI of 2008 model - white colour with fully valid Comprehensive insurance till March 2018"
+      ]
+    },
+    {
+      "name": "AD ID",
+      "description": "UNIQUE ID FOR AD POSTED",
+      "attributeId": 50000000,
+      "parameterValues": [
+        "1000000"
+      ]
+    },
+    {
+      "name": "PRICE",
+      "description": "COST OF OBJECT",
+      "attributeId": 50000001,
+      "parameterValues": [
+        "250000"
+      ]
+    },
+    {
+      "name": "MODEL",
+      "description": "MODEL",
+      "attributeId": 50000004,
+      "parameterValues": [
+        "SUZUKI SWIFT"
+      ]
+    },
+    {
+      "name": "COLOUR",
+      "description": "COLOUR",
+      "attributeId": 50000005,
+      "parameterValues": [
+        null
+      ]
+    }
+  ],
+  "listForAttribute": [
+    {
+      "listId": 10000013,
+      "attributeId": 50000008,
+      "attributeName": "YEAR",
+      "attributeDescription": "YEAR",
+      "listValues": [
+        "2015"
+      ]
+    },
+    {
+      "listId": 10000007,
+      "attributeId": 50000009,
+      "attributeName": "CONDITION",
+      "attributeDescription": "CONDITION",
+      "listValues": [
+        "NEW"
+      ]
+    },
+    {
+      "listId": 10000005,
+      "attributeId": 50000005,
+      "attributeName": "COLOUR",
+      "attributeDescription": "COLOUR",
+      "listValues": [
+        "WHITE"
+      ]
+    }
+  ],
+  "parametersForList": [
+    {
+      "listId": 10000013,
+      "attributeId": 50000008,
+      "attributeName": "YEAR",
+      "attributeDescription": "YEAR",
+      "listValue": "2015",
+      "parameterValues": [
+        null
+      ]
+    },
+    {
+      "listId": 10000005,
+      "attributeId": 50000005,
+      "attributeName": "COLOUR",
+      "attributeDescription": "COLOUR",
+      "listValue": "WHITE",
+      "parameterValues": [
+        null
+      ]
+    },
+    {
+      "listId": 10000007,
+      "attributeId": 50000009,
+      "attributeName": "CONDITION",
+      "attributeDescription": "CONDITION",
+      "listValue": "NEW",
+      "parameterValues": [
+        null
+      ]
+    }
+  ]
+}

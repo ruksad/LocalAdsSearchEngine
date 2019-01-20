@@ -1,0 +1,135 @@
+<section class="forsale">
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-md-12" *ngIf="selectedCategory">
+
+        <!-- quality start -->
+        <div class="col-md-12">
+          <div class="quality">
+
+            <div class="col-md-2" *ngIf="selectedCategory.categoryName.toLowerCase() =='properties'">
+              <form>
+                <div class="form-group">
+                  <label for="price" class="price_max">Bedrooms :</label>
+                  <select class="form-control sort" [(ngModel)]="furnitureBedRoomsSelected" (ngModelChange)="onchangeBedrooms(furnitureBedRoomsSelected)" [ngModelOptions]="{standalone: true}">
+                      <option *ngFor="let bedrooms of bedRoomsList" [ngValue]="bedrooms.listValue" [disabled]="bedrooms.listId===''">{{bedrooms.listValue}}</option>
+                  </select>
+                </div>
+              </form>
+            </div>
+            <span *ngIf="selectedCategory.categoryName.toLowerCase() =='properties'">
+              <div class="col-md-2">
+                <form>
+                  <div class="form-group">
+                    <label for="price" class="price_max">Area :</label>
+                    <select class="form-control sort" [(ngModel)]="minarea" (ngModelChange)="onchangeArea()" [ngModelOptions]="{standalone: true}">
+                      <option disabled [ngValue]="undefined">Min</option>
+                      <option [ngValue]="200">200 sqft</option>
+                      <option [ngValue]="500">500 sqft</option>
+                      <option [ngValue]="800">800 sqft</option>
+                      <option [ngValue]="1000">1000 sqft</option>
+                      <option [ngValue]="1200">1200 sqft</option>
+                      <option [ngValue]="1500">1500 sqft</option>
+                      <option [ngValue]="1750">1750 sqft</option>
+                      <option [ngValue]="2000">2000 sqft</option>
+                      <option [ngValue]="2500">2500 sqft</option>
+                    </select>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-2">
+                <form>
+                  <div class="form-group">
+                    <label for="price">&nbsp;</label>
+                    <select class="form-control sort" [(ngModel)]="maxarea" (ngModelChange)="onchangeArea()" [ngModelOptions]="{standalone: true}">
+                      <option disabled [ngValue]="undefined">Max</option>
+                      <option [ngValue]="200">200 sqft</option>
+                      <option [ngValue]="500">500 sqft</option>
+                      <option [ngValue]="800">800 sqft</option>
+                      <option [ngValue]="1000">1000 sqft</option>
+                      <option [ngValue]="1200">1200 sqft</option>
+                      <option [ngValue]="1500">1500 sqft</option>
+                      <option [ngValue]="1750">1750 sqft</option>
+                      <option [ngValue]="2000">2000 sqft</option>
+                      <option [ngValue]="2500">2500 sqft</option>
+                    </select>
+                  </div>
+                </form>
+              </div>
+            </span>
+            <div class="col-md-2" *ngIf="selectedCategory.categoryName.toLowerCase() =='properties'">
+              <form>
+                <div class="form-group">
+                  <label for="price" class="price_max">Listed by :</label>
+                  <select class="sort" [(ngModel)]="propertyPostedSelected" (ngModelChange)="onPropertyPostedChange(propertyPostedSelected)"
+                    [ngModelOptions]="{standalone: true}">
+                    <option disabled [value]="undefined">Listed by</option>
+                    <option value="all">All</option>
+                    <option value="owner">Owner</option>
+                    <option value="dealer">Dealer</option>
+                    <option value="builder">Builder</option>
+                  </select>
+                </div>
+              </form>
+            </div>
+
+            <div class="col-md-2" *ngIf="selectedCategory.categoryName.toLowerCase() =='properties'">
+              <div class="form-group multi-select-box" *ngIf="locationsList">
+                <label for="price" class="price_max">Locality :</label>
+                <select id="multiple-locality-select" multiple searchable="Search here.." >
+                  <option *ngFor="let location of locationsList" [ngValue]="location.localityId">{{location.localityName}}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-md-2" *ngIf="selectedCategory.categoryName.toLowerCase() =='vehicles'">
+              <div class="form-group multi-select-box" *ngIf="objectListView">
+                <label for="price" class="price_max">Model :</label>
+                <select id="vechiles-model-multiple-checkboxes" multiple="multiple" class="list_view" [disabled]="!objectListEnabled">
+                  <option *ngFor="let model of vechileObjects" [ngValue]="model.objectTypeId">{{model.objectTypename}}</option>
+                </select>
+              </div>
+            </div>
+
+
+
+         
+
+          <div class="col-md-5 col-sm-offset-7">
+
+            <div class="col-md-8">
+              <!-- view change -->
+              <a class="list_view" (click)="onChangeView(false)" [ngClass]="{'blur':!viewOptionSelected} ">
+                <i class="fa fa-server"></i> List view</a>
+              <a class="list_view active" (click)="onChangeView(true)" [ngClass]="{'blur':viewOptionSelected} ">
+                <i class="fa fa-th"></i> Gallery view</a>
+            </div>
+            <!-- sort -->
+            <div class="col-md-4">
+              <select class="sort" [(ngModel)]="sortValueSelected" (ngModelChange)="onChangeSort($event)">
+                <option *ngFor="let sortList of prodductSortArray" [ngValue]="sortList" [disabled]="sortList.id===0">{{sortList.name}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        </div>
+        <!-- quality end -->
+      </div>
+
+      <!-- side bar menu start here-->
+
+      <app-for-sale-categories></app-for-sale-categories>
+      <!-- side bar menu end-->
+
+      <!-- product view starts here -->
+      <app-for-sale-view [viewOptionSelected]="viewOptionSelected" [furnitureBedRoomsSelected]="furnitureBedRoomsSelected" [areaSelected]="areaSelected"
+        [propertyPostedSelected]="propertyPostedSelected" [localitySelected]="localitySelected" [vechileModelSelected]="vechileModelSelected"
+        [sortValueSelected]="sortValueSelected" (updateSelectedCategroyName)=selectedCategroyName($event)></app-for-sale-view>
+
+      <!-- product view ends here -->
+
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,4 @@
+<app-header [statesAndCities]="statesAndCities" (selectedCityEmit)="selectCity($event)" (postAdSlectedTabEmit)="postAdTabSelected($event)"></app-header>
+<app-search-field *ngIf="!isPostAnAdTabSelected" [allCategories]="allCategories" (selectedCategoryEmit)="selectCategroy($event)"></app-search-field>
+<router-outlet></router-outlet>
+<app-footer></app-footer>

@@ -1,0 +1,370 @@
+{
+  "objectTypeLevel2CategoryId": 90000008,
+  "objectTypeId": null,
+  "objectTypeName": "Maruti Suzuki",
+  "cityId": null,
+  "localityId": null,
+  "attributeDTOList": [
+    {
+      "attributeId": 50000001,
+      "attributeName": "Price",
+      "attributeDescription": "COST OF OBJECT",
+      "listValues": [],
+      "parameterValue": null,
+      "selectedListValue": null,
+      "attributeType": null,
+      "others": {}
+    },
+    {
+      "attributeId": 50000013,
+      "attributeName": "Telephone",
+      "attributeDescription": "Telephone",
+      "listValues": [],
+      "parameterValue": null,
+      "selectedListValue": null,
+      "attributeType": null,
+      "others": {}
+    },
+    {
+      "attributeId": 50000021,
+      "attributeName": "Image",
+      "attributeDescription": "Image Location",
+      "listValues": [],
+      "parameterValue": null,
+      "selectedListValue": null,
+      "attributeType": null,
+      "others": {}
+    },
+    {
+      "attributeId": 50000023,
+      "attributeName": "Posted By",
+      "attributeDescription": "Posted By",
+      "listValues": [],
+      "parameterValue": null,
+      "selectedListValue": null,
+      "attributeType": null,
+      "others": {}
+    },
+    {
+      "attributeId": 50000024,
+      "attributeName": "Posted Date",
+      "attributeDescription": "Posted Date",
+      "listValues": [],
+      "parameterValue": null,
+      "selectedListValue": null,
+      "attributeType": null,
+      "others": {}
+    },
+    {
+      "attributeId": 50000039,
+      "attributeName": "object_type_name",
+      "attributeDescription": "object type name",
+      "listValues": [],
+      "parameterValue": null,
+      "selectedListValue": null,
+      "attributeType": null,
+      "others": {}
+    },
+    {
+      "attributeId": 50000015,
+      "attributeName": "email",
+      "attributeDescription": "email",
+      "listValues": [],
+      "parameterValue": null,
+      "selectedListValue": null,
+      "attributeType": null,
+      "others": {}
+    },
+    {
+      "attributeId": 50000022,
+      "attributeName": "KM DRIVEN",
+      "attributeDescription": "KM Driven",
+      "listValues": [],
+      "parameterValue": null,
+      "parameterValue": null,
+      "selectedListValue": null,
+      "attributeType": null,
+      "others": {}
+    },
+    {
+      "attributeId": 50000004,
+      "attributeName": "Model",
+      "attributeDescription": "MODEL",
+      "listValues": [],
+      "parameterValue": null,
+      "selectedListValue": null,
+      "attributeType": null,
+      "others": {
+        "Model": [
+          {
+            "objectTypeId": 90000160,
+            "objectTypename": "Swift Desire",
+            "objectTypeParentId": null,
+            "childObjectTypes": null,
+            "objectTypeDescription": "Swift Desire"
+          },
+          {
+            "objectTypeId": 90000161,
+            "objectTypename": "Swift",
+            "objectTypeParentId": null,
+            "childObjectTypes": null,
+            "objectTypeDescription": "Swift"
+          }
+        ]
+      }
+    },
+    {
+      "attributeId": 50000008,
+      "attributeName": "Year",
+      "attributeDescription": "YEAR",
+      "listValues": [
+        {
+          "listId": 10000036,
+          "listValue": "1995"
+        },
+        {
+          "listId": 10000010,
+          "listValue": "2011"
+        },
+        {
+          "listId": 10000041,
+          "listValue": "2000"
+        },
+        {
+          "listId": 10000030,
+          "listValue": "1990 Below"
+        },
+        {
+          "listId": 10000046,
+          "listValue": "2005"
+        },
+        {
+          "listId": 10000035,
+          "listValue": "1994"
+        },
+        {
+          "listId": 10000009,
+          "listValue": "2011"
+        },
+        {
+          "listId": 10000040,
+          "listValue": "1999"
+        },
+        {
+          "listId": 10000014,
+          "listValue": "2016"
+        },
+        {
+          "listId": 10000045,
+          "listValue": "2004"
+        },
+        {
+          "listId": 10000034,
+          "listValue": "1993"
+        },
+        {
+          "listId": 10000050,
+          "listValue": "2009"
+        },
+        {
+          "listId": 10000008,
+          "listValue": "2010"
+        },
+        {
+          "listId": 10000039,
+          "listValue": "1998"
+        },
+        {
+          "listId": 10000013,
+          "listValue": "2015"
+        },
+        {
+          "listId": 10000044,
+          "listValue": "2003"
+        },
+        {
+          "listId": 10000033,
+          "listValue": "1992"
+        },
+        {
+          "listId": 10000049,
+          "listValue": "2008"
+        },
+        {
+          "listId": 10000038,
+          "listValue": "1997"
+        },
+        {
+          "listId": 10000012,
+          "listValue": "2014"
+        },
+        {
+          "listId": 10000043,
+          "listValue": "2002"
+        },
+        {
+          "listId": 10000032,
+          "listValue": "1991"
+        },
+        {
+          "listId": 10000048,
+          "listValue": "2007"
+        },
+        {
+          "listId": 10000037,
+          "listValue": "1996"
+        },
+        {
+          "listId": 10000011,
+          "listValue": "2013"
+        },
+        {
+          "listId": 10000042,
+          "listValue": "2001"
+        },
+        {
+          "listId": 10000031,
+          "listValue": "1990"
+        },
+        {
+          "listId": 10000047,
+          "listValue": "2006"
+        }
+      ],
+      "parameterValue": null,
+      "selectedListValue": null,
+      "attributeType": null,
+      "others": {}
+    },
+    {
+      "attributeId": 50000009,
+      "attributeName": "Condition",
+      "attributeDescription": "CONDITION",
+      "listValues": [
+        {
+          "listId": 10000007,
+          "listValue": "New"
+        },
+        {
+          "listId": 10000006,
+          "listValue": "Used"
+        }
+      ],
+      "parameterValue": null,
+      "selectedListValue": null,
+      "attributeType": null,
+      "others": {}
+    },
+    {
+      "attributeId": 50000006,
+      "attributeName": "Transmission",
+      "attributeDescription": "TRANSMISSION",
+      "listValues": [
+        {
+          "listId": 10000002,
+          "listValue": "LPG"
+        },
+        {
+          "listId": 10000001,
+          "listValue": "Automatic"
+        },
+        {
+          "listId": 10000000,
+          "listValue": "Manual"
+        }
+      ],
+      "parameterValue": null,
+      "selectedListValue": null,
+      "attributeType": null,
+      "others": {}
+    },
+    {
+      "attributeId": 50000007,
+      "attributeName": "Fuel",
+      "attributeDescription": "FUEL",
+      "listValues": [
+        {
+          "listId": 10000027,
+          "listValue": "Petrol"
+        },
+        {
+          "listId": 10000029,
+          "listValue": "Hybrids"
+        },
+        {
+          "listId": 10000028,
+          "listValue": "Diesel"
+        }
+      ],
+      "parameterValue": null,
+      "selectedListValue": null,
+      "attributeType": null,
+      "others": {}
+    },
+    {
+      "attributeId": 50000005,
+      "attributeName": "Color",
+      "attributeDescription": "COLOR",
+      "listValues": [
+        {
+          "listId": 10000003,
+          "listValue": "Red"
+        },
+        {
+          "listId": 10000019,
+          "listValue": "Black"
+        },
+        {
+          "listId": 10000024,
+          "listValue": "Purple"
+        },
+        {
+          "listId": 10000018,
+          "listValue": "Orange"
+        },
+        {
+          "listId": 10000023,
+          "listValue": "Green"
+        },
+        {
+          "listId": 10000015,
+          "listValue": "Brown"
+        },
+        {
+          "listId": 10000022,
+          "listValue": "Yellow"
+        },
+        {
+          "listId": 10000005,
+          "listValue": "White"
+        },
+        {
+          "listId": 10000021,
+          "listValue": "Beige"
+        },
+        {
+          "listId": 10000026,
+          "listValue": "Silver"
+        },
+        {
+          "listId": 10000004,
+          "listValue": "Blue"
+        },
+        {
+          "listId": 10000020,
+          "listValue": "Grey"
+        },
+        {
+          "listId": 10000025,
+          "listValue": "Gold"
+        }
+      ],
+      "parameterValue": null,
+      "selectedListValue": null,
+      "attributeType": null,
+      "others": {}
+    }
+  ],
+  "objectDescription": null,
+  "name": null
+}

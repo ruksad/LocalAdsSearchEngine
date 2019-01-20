@@ -1,0 +1,809 @@
+<!-- Post_free start
+================================================== -->
+<section class="post_free_main">
+  <div class="container">
+    <div class="row">
+      <div class="post_free_ad">
+        <div class="post_title">
+          <div class="col-md-6">
+            <div id="custom-search-input">
+              <div class="input-group col-md-12">
+                <input type="text" class="  search-query form-control" placeholder="Search" />
+                <span class="input-group-btn">
+                  <button class="btn btn-danger" type="button">
+                    <span class=" glyphicon glyphicon-search"></span>
+                  </button>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h1>Post A Free Ad </h1>
+          </div>
+        </div>
+        <fieldset class="flcr">
+          <div class="ad_title_main">
+
+
+            <!-- drop down for categories -->
+
+            <div *ngIf="isCategoryDropDownTobeShown" class="samp">
+              <div class="col-md-4">
+                <div class="ad_lft">
+                  <label class="lable_title pull-right" for="add-title">Category
+                    <span class="cc914">*</span>
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="ad_rgt">
+                  <div class="input-group-btn">
+                    <button type="button" class="btn btn-default dropdown-toggle clr" data-toggle="dropdown" style="height:35px; border-radius:3px;">{{categoriesPlaceHolder}}
+                      <span class="glyphicon glyphicon-chevron-down pull-right"></span>
+                    </button>
+                    <ul class="dropdown-menu" *ngIf="allCategories">
+                      <li>
+                        <a href="javascript:void(0)">
+                          <i class="fa fa-th-large" aria-hidden="true"></i>&nbsp; All Categories</a>
+                      </li>
+                      <li class="dropdown-submenu">
+                        <a tabindex="-1" href="javascript:void(0)">
+                          <i class="fa fa-bed" aria-hidden="true"></i>&nbsp; Furniture</a>
+                        <ul class="dropdown-menu">
+                          <li class="dropdown-submenu" *ngFor="let subcategory of fectCategroyObject(definedConstantsService.FURNITURE_TEMPLATE)['childObjectTypes']">
+                            <a (click)="selectCategory(fectCategroyObject(definedConstantsService.FURNITURE_TEMPLATE),subcategory)">{{subcategory.objectTypename}}</a>
+                            <ul *ngIf="subcategory['childObjectTypes'].length>0" class="dropdown-menu">
+                              <li *ngFor="let innerSubcategory of subcategory['childObjectTypes']">
+                                <a (click)="selectCategory(fectCategroyObject(definedConstantsService.FURNITURE_TEMPLATE),subcategory,innerSubcategory)">{{innerSubcategory.objectTypename}}</a>
+                              </li>
+
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li class="dropdown-submenu">
+                        <a tabindex="-1" href="javascript:void(0)">
+                          <i class="fa fa-home" aria-hidden="true"></i>&nbsp; Properties</a>
+                        <ul class="dropdown-menu">
+                          <li class="dropdown-submenu" *ngFor="let subcategory of fectCategroyObject(definedConstantsService.PROPERTIES_TEMPLATE)['childObjectTypes']">
+                            <a (click)="selectCategory(fectCategroyObject(definedConstantsService.PROPERTIES_TEMPLATE),subcategory)">{{subcategory['objectTypename']}}</a>
+                            <ul *ngIf="subcategory['childObjectTypes'].length>0" class="dropdown-menu">
+                              <li *ngFor="let innerSubcategory of subcategory['childObjectTypes']">
+                                <a (click)="selectCategory(fectCategroyObject(definedConstantsService.PROPERTIES_TEMPLATE),subcategory,innerSubcategory)">{{innerSubcategory.objectTypename}}</a>
+                              </li>
+
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li class="dropdown-submenu">
+                        <a tabindex="-1" href="javascript:void(0)">
+                          <i class="fa fa-car" aria-hidden="true"></i>&nbsp; Vehicles</a>
+                        <ul class="dropdown-menu">
+                          <li class="dropdown-submenu" *ngFor="let subcategory of fectCategroyObject(definedConstantsService.VEHICLES_TEMPLATE)['childObjectTypes']">
+                            <a>{{subcategory['objectTypename']}}</a>
+                            <ul *ngIf="subcategory['childObjectTypes'].length>0" class="dropdown-menu">
+                              <li *ngFor="let innerSubcategory of subcategory['childObjectTypes']">
+                                <a (click)="selectCategory(fectCategroyObject(definedConstantsService.VEHICLES_TEMPLATE),subcategory,innerSubcategory)">{{innerSubcategory.objectTypename}}</a>
+                              </li>
+
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li class="dropdown-submenu">
+                        <a tabindex="-1" href="javascript:void(0)">
+                          <i class="fa fa-desktop" aria-hidden="true"></i>&nbsp; Electronics & Home Appliances</a>
+                        <ul class="dropdown-menu">
+                          <li class="dropdown-submenu" *ngFor="let subcategory of fectCategroyObject(definedConstantsService.ELECTRONICS_HOME_APPLIANCES_TEMPLATE)['childObjectTypes']">
+                            <a (click)="selectCategory(fectCategroyObject(definedConstantsService.ELECTRONICS_HOME_APPLIANCES_TEMPLATE),subcategory)">{{subcategory['objectTypename']}}</a>
+                            <ul *ngIf="subcategory['childObjectTypes'].length>0" class="dropdown-menu">
+                              <li *ngFor="let innerSubcategory of subcategory['childObjectTypes']">
+                                <a (click)="selectCategory(fectCategroyObject(definedConstantsService.ELECTRONICS_HOME_APPLIANCES_TEMPLATE),subcategory,innerSubcategory)">{{innerSubcategory.objectTypename}}</a>
+                              </li>
+
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li class="dropdown-submenu">
+                        <a tabindex="-1" href="javascript:void(0)">
+                          <i class="fa fa-paw"></i>&nbsp; Pets</a>
+                        <ul class="dropdown-menu">
+                          <li class="dropdown-submenu" *ngFor="let subcategory of fectCategroyObject(definedConstantsService.PETS_TEMPLATE)['childObjectTypes']">
+                            <a (click)="selectCategory(fectCategroyObject(definedConstantsService.PETS_TEMPLATE),subcategory)">{{subcategory['objectTypename']}}</a>
+                            <ul *ngIf="subcategory['childObjectTypes'].length>0" class="dropdown-menu">
+                              <li *ngFor="let innerSubcategory of subcategory['childObjectTypes']">
+                                <a (click)="selectCategory(fectCategroyObject(definedConstantsService.PETS_TEMPLATE),subcategory,innerSubcategory)">{{innerSubcategory.objectTypename}}</a>
+                              </li>
+
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li class="dropdown-submenu">
+                        <a tabindex="-1" href="javascript:void(0)">
+                          <i class="fa fa-child" aria-hidden="true"></i>&nbsp; Kids</a>
+                        <ul class="dropdown-menu">
+                          <li class="dropdown-submenu" *ngFor="let subcategory of fectCategroyObject(definedConstantsService.KIDS_TEMPLATE)['childObjectTypes']">
+                            <a (click)="selectCategory(fectCategroyObject(definedConstantsService.KIDS_TEMPLATE),subcategory)">{{subcategory['objectTypename']}}</a>
+                            <ul *ngIf="subcategory['childObjectTypes'].length>0" class="dropdown-menu">
+                              <li *ngFor="let innerSubcategory of subcategory['childObjectTypes']">
+                                <a (click)="selectCategory(fectCategroyObject(definedConstantsService.KIDS_TEMPLATE),subcategory,innerSubcategory)">{{innerSubcategory.objectTypename}}</a>
+                              </li>
+
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li class="dropdown-submenu">
+                        <a tabindex="-1" href="javascript:void(0)">
+                          <i class="fa fa-address-book-o" aria-hidden="true"></i>&nbsp; Services</a>
+                        <ul class="dropdown-menu">
+                          <li class="dropdown-submenu" *ngFor="let subcategory of fectCategroyObject(definedConstantsService.SERVICES_TEMPLATE)['childObjectTypes']">
+                            <a (click)="selectCategory(fectCategroyObject(definedConstantsService.SERVICES_TEMPLATE),subcategory)">{{subcategory['objectTypename']}}</a>
+                            <ul *ngIf="subcategory['childObjectTypes'].length>0" class="dropdown-menu">
+                              <li *ngFor="let innerSubcategory of subcategory['childObjectTypes']">
+                                <a (click)="selectCategory(fectCategroyObject(definedConstantsService.SERVICES_TEMPLATE),subcategory,innerSubcategory)">{{innerSubcategory.objectTypename}}</a>
+                              </li>
+
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li class="dropdown-submenu">
+                        <a tabindex="-1" href="javascript:void(0)">
+                          <i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp; Jobs</a>
+                        <ul class="dropdown-menu">
+                          <li class="dropdown-submenu" *ngFor="let subcategory of fectCategroyObject(definedConstantsService.JOBS_TEMPLATE)['childObjectTypes']">
+                            <a (click)="selectCategory(fectCategroyObject(definedConstantsService.JOBS_TEMPLATE),subcategory)">{{subcategory['objectTypename']}}</a>
+                            <ul *ngIf="subcategory['childObjectTypes'].length>0" class="dropdown-menu">
+                              <li *ngFor="let innerSubcategory of subcategory['childObjectTypes']">
+                                <a (click)="selectCategory(fectCategroyObject(definedConstantsService.JOBS_TEMPLATE),subcategory,innerSubcategory)">{{innerSubcategory.objectTypename}}</a>
+                              </li>
+
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li class="dropdown-submenu">
+                        <a tabindex="-1" href="javascript:void(0)">
+                          <i class="fa fa-book" aria-hidden="true"></i>&nbsp; Events & Software</a>
+                        <ul class="dropdown-menu">
+                          <li class="dropdown-submenu" *ngFor="let subcategory of fectCategroyObject(definedConstantsService.BOOKS_SOFTWARE_TEMPLATE)['childObjectTypes']">
+                            <a (click)="selectCategory(fectCategroyObject(definedConstantsService.BOOKS_SOFTWARE_TEMPLATE),subcategory)">{{subcategory['objectTypename']}}</a>
+                            <ul *ngIf="subcategory['childObjectTypes'].length>0" class="dropdown-menu">
+                              <li *ngFor="let innerSubcategory of subcategory['childObjectTypes']">
+                                <a (click)="selectCategory(fectCategroyObject(definedConstantsService.BOOKS_SOFTWARE_TEMPLATE),subcategory,innerSubcategory)">{{innerSubcategory.objectTypename}}</a>
+                              </li>
+
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li class="dropdown-submenu">
+                        <a tabindex="-1" href="javascript:void(0)">
+                          <img src="/assets/images/fashion-icon.png" alt="">&nbsp; Fashion & Beauty</a>
+                        <ul class="dropdown-menu">
+                          <li class="dropdown-submenu" *ngFor="let subcategory of fectCategroyObject(definedConstantsService.FASHION_BEAUTY_TEMPLATE)['childObjectTypes']">
+                            <a (click)="selectCategory(fectCategroyObject(definedConstantsService.FASHION_BEAUTY_TEMPLATE),subcategory)">{{subcategory['objectTypename']}}</a>
+                            <ul *ngIf="subcategory['childObjectTypes'].length>0" class="dropdown-menu">
+                              <li *ngFor="let innerSubcategory of subcategory['childObjectTypes']">
+                                <a (click)="selectCategory(fectCategroyObject(definedConstantsService.FASHION_BEAUTY_TEMPLATE),subcategory,innerSubcategory)">{{innerSubcategory.objectTypename}}</a>
+                              </li>
+
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+
+
+
+
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div *ngIf="!isTemplateFound" class="samp">
+              <div class="col-md-4"> </div>
+              <div class="col-md-8">
+                <div class="ad_rgt">
+                  <button type="button" class="btn btn-primary" (click)="fetchPostAdTemplateOnclick()">Continue Free Ad</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- <fieldset *ngIf="isTemplateFound && !isloginModalOpen" class="flcr"> -->
+
+            <fieldset *ngIf="isTemplateFound " class="flcr">
+              <form name="postaddAttributesForm" #validatePostAdsForm="ngForm">
+
+
+
+                <div class="ad_title_main">
+                  <div class="samp">
+                    <div class="col-md-4">
+                      <div class="ad_lft">
+                        <label class="lable_title pull-right" for="Category">Category
+                          <span class="cc914">*</span>:</label>
+                      </div>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="ad_rgt">
+                        <ul class="maruthi">
+                          <li>
+                            <a href="javascript:void(0)">{{selectedCategoryLevel2.objectTypename}}</a>
+                            <span class="marginright2">
+                              <i class="fa fa-angle-double-right"></i>
+                            </span>
+                          </li>
+                          <li>
+                            <a href="javascript:void(0)">{{selectedCategoryLevel3.objectTypename}}</a>
+                            <span class="marginright2">
+                              <i class="fa fa-angle-double-right"></i>
+                            </span>
+                          </li>
+                          <li *ngIf="selectedCategoryLevel4">
+                            <a href="javascript:void(0)">{{selectedCategoryLevel4.objectTypename}}</a>
+                            <span class="marginright2">
+                              <i class="fa fa-angle-double-right"></i>
+                            </span>
+                          </li>
+                          <li>
+                            <a href="javascript:void(0)">
+                              <button type="button" class="btn btn-primary" (click)="resetOnCategoryChange()">Change</button>
+                            </a>
+                            <span class="change">
+                              <i class="fa fa-check-circle"></i>
+                            </span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="samp">
+                    <div class="col-md-4">
+                      <div>
+                        <label class="lable_title pull-right" for="add-title">Ad Title
+                          <span class="cc914">*</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="ad_rgt">
+                        <input [(ngModel)]="tittle" class="form-control clr" id="inputTestID1" minlength="20" maxlength="70" name="inputAdTitle"
+                          type="text" data-placement="right" pattern="^[a-zA-Z0-9@.,\s]+$" title="
+                         Give your ad an attractive title.
+                         Think of words that people would use to search for your Ad.
+                        Check the spellings and do not use CAPITAL LETTERS or symbols.
+                      " #adTitlevalue="ngModel" required>
+                        <span *ngIf="!adTitlevalue.valid">
+                          <div [hidden]="!adTitlevalue.errors.required || !validatePostAdsForm.submitted" class="cc914">Ad title is required</div>
+                          <div *ngIf="!adTitlevalue.errors.required" [hidden]="(adTitlevalue.valid &&!adTitlevalue.errors.pattern && !adTitlevalue.errors.minlength && !adTitlevalue.errors.maxlength) || !validatePostAdsForm.submitted"
+                            class="cc914"> Set a realistic Ad title with min 20 characters to max 70 characters</div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="samp">
+                    <div class="col-md-4">
+                      <label class="lable_title pull-right" for="Price">Price
+                        <span class="cc914">*</span>:</label>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="ad_rgt">
+                        <input [(ngModel)]="price.parameterValue" class="form-control clr" pattern="^[0-9]*$" minlength="1" maxlength="8" id="inputTestID2"
+                          #priceValue="ngModel" name="input" type="text" required>
+                        <span *ngIf="!priceValue.valid">
+                          <div [hidden]="!priceValue.hasError('required') || !validatePostAdsForm.submitted" class="cc914"> Price is required</div>
+                          <div *ngIf="!priceValue.errors.required" [hidden]="(!priceValue.hasError('pattern') && priceValue.valid && !priceValue.errors.minlength && !priceValue.errors.maxlength) || !validatePostAdsForm.submitted"
+                            class="cc914"> Set a realistic price with Min of Rs.1 to Max of Rs.99999999</div>
+                        </span>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div *ngIf="isCategoryVehicles && !isCategoryForCycles && !isCategoryForMoterbikesOrScooter" class="samp">
+                    <div class="col-md-4">
+                      <label class="lable_title pull-right" for="Model">Model
+                        <span class="cc914">*</span>:</label>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="ad_rgt">
+                        <select [(ngModel)]="model.parameterValue" class="form-control clr" name="modelVal" #modelValue="ngModel" required>
+                          <option selected="selected" disabled>Please select vehicle model</option>
+                          <option *ngFor="let model1 of model.others.Model|sortFilterArrayModel" [ngValue]="model1.objectTypename">{{model1.objectTypename}}</option>
+                        </select>
+                        <div [hidden]="modelValue.valid || !validatePostAdsForm.submitted" class="cc914"> Model is required</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="isCategoryVehicles" class="samp">
+                    <div class="col-md-4">
+                      <label class="lable_title pull-right" for="Year">Year
+                        <span class="cc914">*</span>:</label>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="ad_rgt">
+                        <select [(ngModel)]="year.selectedListValue" name="yearVal" #yearValue="ngModel" class="form-control clr" required>
+                          <option selected="selected" disabled>Please select vehicle year</option>
+                          <option *ngFor="let year1 of year.listValues|sortFilterArray:true" [ngValue]="year1">{{year1.listValue}}</option>
+                        </select>
+                        <div [hidden]="yearValue.valid || !validatePostAdsForm.submitted" class="cc914"> Vehicle Year is required</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="isCategoryVehicles" class="samp">
+                    <div class="col-md-4">
+                      <label class="lable_title pull-right" for="Color">Color
+                        <span class="cc914">*</span>:</label>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="ad_rgt">
+                        <select [(ngModel)]="color.selectedListValue" name="colorVal" class="form-control clr" #colorValue="ngModel" required>
+                          <option selected="selected" disabled>Please select vehicle color</option>
+                          <option *ngFor="let color1 of color.listValues|sortFilterArray" [ngValue]="color1">{{color1.listValue}}</option>
+                        </select>
+                        <div [hidden]="colorValue.valid || !validatePostAdsForm.submitted" class="cc914"> Vehicle color is required</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="isCategoryVehicles" class="samp">
+                    <div class="col-md-4">
+                      <div class="ad_lft">
+                        <label class="lable_title pull-right" for="Condition">Condition
+                          <span class="cc914">*</span>:</label>
+                      </div>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="ad_rgt">
+                        <div class="radio">
+                          <label class="radio-inline">
+                            <input type="radio" name="optradio" [value]="condition.listValues[0]" #ConditionValue="ngModel" [(ngModel)]="condition.selectedListValue"
+                              required> {{condition.listValues[0].listValue}}</label>
+                          <label class="radio-inline">
+                            <input type="radio" name="optradio" [value]="condition.listValues[1]" #ConditionValue="ngModel" [(ngModel)]="condition.selectedListValue"
+                              required> {{condition.listValues[1].listValue}}</label>
+                        </div>
+                        <div [hidden]="ConditionValue.valid || !validatePostAdsForm.submitted" class="cc914"> Select Condition is required</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="isCategoryVehicles && !isCategoryForCycles" class="samp">
+                    <div class="col-md-4">
+                      <label class="lable_title pull-right" for="Color">Fuel
+                        <span class="cc914">*</span>:</label>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="ad_rgt">
+                        <select [(ngModel)]="fuel.selectedListValue" name="fuelVal" class="form-control clr" #fuelValue="ngModel" required>
+                          <option selected="selected" disabled>Please select vehicle Fuel type</option>
+                          <option *ngFor="let fuel1 of fuel.listValues|sortFilterArray" [ngValue]="fuel1">{{fuel1.listValue}}</option>
+                        </select>
+                        <div [hidden]="fuelValue.valid || !validatePostAdsForm.submitted" class="cc914"> Vehicle fuel type is required</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="isCategoryVehicles && !isCategoryForCycles && !isCategoryForMoterbikesOrScooter" class="samp">
+                    <div class="col-md-4">
+                      <label class="lable_title pull-right" for="Color">Transmission
+                        <span class="cc914">*</span>:</label>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="ad_rgt">
+                        <select [(ngModel)]="transmission.selectedListValue" name="transmissionVal" class="form-control clr" #transmissionValue="ngModel"
+                          required>
+                          <option selected="selected" disabled>Please select vehicle Transmission type</option>
+                          <option *ngFor="let transmission1 of transmission.listValues|sortFilterArray" [ngValue]="transmission1">{{transmission1.listValue}}</option>
+                        </select>
+                        <div [hidden]="transmissionValue.valid || !validatePostAdsForm.submitted" class="cc914"> Vehicle transmission type is required</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="isCategoryVehicles && !isCategoryForCycles" class="samp">
+                    <div class="col-md-4">
+                      <label class="lable_title pull-right" for="KM Driven">KM Driven
+                        <span class="cc914">*</span>:</label>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="ad_rgt">
+                        <input [(ngModel)]="km_driven.parameterValue" class="form-control clr" id="inputTestID3" name="inputTest56" type="text" minlength="1"
+                          maxlength="6" pattern="^[0-9]*$" #kmDrivenValue="ngModel" required>
+                        <span class="suffix">km</span>
+
+                        <span *ngIf="!kmDrivenValue.valid">
+                          <div [hidden]="!kmDrivenValue.hasError('required') || !validatePostAdsForm.submitted" class="cc914"> KM Driven is required </div>
+                          <div *ngIf="!kmDrivenValue.errors.required" [hidden]="(!kmDrivenValue.hasError('pattern') && kmDrivenValue.valid  && !kmDrivenValue.errors.minlength && !kmDrivenValue.errors.maxlength)|| !validatePostAdsForm.submitted"
+                            class="cc914"> Set a realistic price with Min of 1 km to Max of 999999 km</div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                  <!-- properties attribute start -->
+
+
+                  <div *ngIf="isCategoryForPropertiesForRentFlats || isCategoryForPropertiesForRentHouses   || isCategoryForPropertiesForRentPg || isCategoryForPropertiesForSaleHouses  ||isCategoryForPropertiesForSaleFlats 			                           ||isCategoryForPropertiesForSaleHouses"
+                    class="samp">
+                    <div class="col-md-4">
+                      <label class="lable_title pull-right" for="Bed rooms">Bed Rooms
+                        <span class="cc914">*</span>:</label>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="ad_rgt">
+                        <select [(ngModel)]="bedRooms.selectedListValue" name="bedRoomVal" class="form-control clr" #bedRoomValue="ngModel" required>
+                          <option selected="selected" disabled>Please select bedrooms</option>
+                          <option *ngFor="let bedRoom of bedRooms.listValues|sortFilterArray" [ngValue]="bedRoom">{{bedRoom.listValue}}</option>
+                        </select>
+                        <div [hidden]="bedRoomValue.valid || !validatePostAdsForm.submitted" class="cc914"> Bedrooms is required</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="isCategoryForPropertiesForRentFlats || isCategoryForPropertiesForRentHouses
+                    || isCategoryForPropertiesForSaleFlats || isCategoryForPropertiesForSaleHouses" class="samp">
+                    <div class="col-md-4">
+                      <label class="lable_title pull-right" for="carpet_area">Carpet Area
+                        <span class="cc914">*</span>:</label>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="ad_rgt">
+                        <input [(ngModel)]="carpetAre.parameterValue" class="form-control clr" id="inputTestID3" name="inputCarpet" type="text" minlength="1"
+                          maxlength="9" pattern="^[0-9]*$" #carpetValue="ngModel" required>
+                        <span class="suffix">sq ft.</span>
+                        <span *ngIf="!carpetValue.valid">
+                          <div [hidden]="!carpetValue.hasError('required') || !validatePostAdsForm.submitted" class="cc914"> Carpet Area is required</div>
+                          <div *ngIf="!carpetValue.errors.required" [hidden]="(!carpetValue.hasError('pattern') && carpetValue.valid && !carpetValue.errors.minlength && !carpetValue.errors.maxlength)|| !validatePostAdsForm.submitted"
+                            class="cc914">Set a realistic value between Min of 1 sq.ft to Max of 999999999 sq.ft</div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="isCategoryForPropertiesForRentFlats
+                      || isCategoryForPropertiesForSaleFlats" class="samp">
+                    <div class="col-md-4">
+                      <label class="lable_title pull-right" for="Price">Monthly Maintenance
+                        <span class="cc914">*</span>:</label>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="ad_rgt">
+                        <input [(ngModel)]="monthlyMaintenance.parameterValue" class="form-control clr" id="inputTestID21" name="inputMaintenance"
+                          type="text" minlength="1" maxlength="4" pattern="^[0-9]*$" #maintenanceValue="ngModel" required>
+                        <span *ngIf="!maintenanceValue.valid">
+                          <div [hidden]="!maintenanceValue.hasError('required') || !validatePostAdsForm.submitted" class="cc914"> Monthly Maintenance is required </div>
+                          <div *ngIf="!maintenanceValue.errors.required" [hidden]="(!maintenanceValue.hasError('pattern')&& maintenanceValue.valid && !maintenanceValue.errors.minlength && !maintenanceValue.errors.maxlength)|| !validatePostAdsForm.submitted"
+                            class="cc914">
+                            Set a realistic Monthly Maintenance value with Min of Rs.10 to Max of Rs.9999 </div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div *ngIf="isCategoryForPropertiesForRentFlats || isCategoryForPropertiesForRentHouses
+                        || isCategoryForPropertiesForRentOffices ||isCategoryForPropertiesForRentShops || isCategoryForPropertiesForSaleFlats "
+                    class="samp">
+                    <div class="col-md-4">
+                      <label class="lable_title pull-right" for="Bed rooms">Car parking
+                        <span class="cc914">*</span>:</label>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="ad_rgt">
+                        <select [(ngModel)]="carParking.selectedListValue" name="carParkingVal" class="form-control clr" #carParkingValue="ngModel"
+                          required>
+                          <option selected="selected" disabled>Please select vehicle parking size</option>
+                          <option *ngFor="let carParking1 of carParking.listValues|sortFilterArray" [ngValue]="carParking1">{{carParking1.listValue}}</option>
+                        </select>
+                        <div [hidden]="carParkingValue.valid || !validatePostAdsForm.submitted" class="cc914"> Bedrooms is required</div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div *ngIf="isCategoryForPropertiesForRentFlats || isCategoryForPropertiesForSaleHouses" class="samp">
+                    <div class="col-md-4">
+                      <label class="lable_title pull-right" for="Plot size">Plot size
+                        <span class="cc914">*</span>:</label>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="ad_rgt">
+                        <input [(ngModel)]="plotsize.parameterValue" class="form-control clr" id="inputTestID21" name="inputPlotSize" type="text"
+                          #plotSizeValue="ngModel" required>
+                        <div [hidden]="plotSizeValue.valid || !validatePostAdsForm.submitted" class="cc914"> Plot Size is required</div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div *ngIf="isCategoryForPropertiesForRentPg || isCategoryForPropertiesForRentShops
+                            || isCategoryForPropertiesForRentOffices || isCategoryForPropertiesForSaleShops || isCategoryForPropertiesForSaleOffices"
+                    class="samp">
+                    <div class="col-md-4">
+                      <label class="lable_title pull-right" for="Bed rooms">Furnishing
+                        <span class="cc914">*</span>:</label>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="ad_rgt">
+                        <select [(ngModel)]="furnishing.selectedListValue" name="furnishingVal" class="form-control clr" #furnishingValue="ngModel"
+                          required>
+                          <option selected="selected" disabled>Please select Furnishing</option>
+                          <option *ngFor="let furnishing1 of furnishing.listValues|sortFilterArray" [ngValue]="furnishing1">{{furnishing1.listValue}}</option>
+                        </select>
+                        <div [hidden]="furnishingValue.valid || !validatePostAdsForm.submitted" class="cc914"> Furnishing is required</div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div *ngIf="isCategoryForPropertiesForRentPg" class="samp">
+                    <div class="col-md-4">
+                      <label class="lable_title pull-right" for="Bed rooms">Meals
+                        <span class="cc914">*</span>:</label>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="ad_rgt">
+                        <select [(ngModel)]="meals.selectedListValue" name="mealsVal" class="form-control clr" #mealsValue="ngModel" required>
+                          <option selected="selected" disabled>Please select meals </option>
+                          <option *ngFor="let meals1 of meals.listValues|sortFilterArray:true" [ngValue]="meals1">{{meals1.listValue}}</option>
+                        </select>
+                        <div [hidden]="mealsValue.valid || !validatePostAdsForm.submitted" class="cc914"> Meals is required</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="isCategoryForPropertiesForRentLands || isCategoryForPropertiesForSaleLands" class="samp">
+                    <div class="col-md-4">
+                      <label class="lable_title pull-right" for="Plot size">Length
+                        <span class="cc914">*</span>:</label>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="ad_rgt">
+                        <input [(ngModel)]="length.parameterValue" class="form-control clr" id="inputTest11" name="inputTest" type="text" minlength="1"
+                          maxlength="6" pattern="^[0-9]*$" #areaLengthValue="ngModel" required>
+                        <span *ngIf="!areaLengthValue.valid">
+                          <div [hidden]="!areaLengthValue.hasError('required') || !validatePostAdsForm.submitted" class="cc914"> Length is required</div>
+                          <div *ngIf="!areaLengthValue.errors.required" [hidden]="(!areaLengthValue.hasError('pattern') && areaLengthValue.valid && !areaLengthValue.errors.minlength && !areaLengthValue.errors.maxlength)|| !validatePostAdsForm.submitted"
+                            class="cc914">
+                            Set a length value with Min of 1 to Max of 100000</div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div *ngIf="isCategoryForPropertiesForRentLands || isCategoryForPropertiesForSaleLands" class="samp">
+                    <div class="col-md-4">
+                      <label class="lable_title pull-right" for="Plot size">Breadth
+                        <span class="cc914">*</span>:</label>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="ad_rgt">
+                        <input [(ngModel)]="breadth.parameterValue" class="form-control clr" id="inputTestID12" name="inputTest" type="text" minlength="1"
+                          maxlength="6" pattern="^[0-9]*$" #areaBreathValue="ngModel" required>
+                        <span *ngIf="!areaBreathValue.valid">
+                          <div [hidden]="!areaBreathValue.hasError('required') || !validatePostAdsForm.submitted" class="cc914"> Breadth is required</div>
+                          <div *ngIf="!areaBreathValue.errors.required" [hidden]="(!areaBreathValue.hasError('pattern')&& areaBreathValue.valid&& !areaBreathValue.errors.minlength && !areaBreathValue.errors.maxlength) || !validatePostAdsForm.submitted"
+                            class="cc914">
+                            Set a Breadth value with Min of 1 to Max of 100000</div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
+
+                  <div *ngIf="isCategoryForPropertiesForRentLands || isCategoryForPropertiesForSaleLands" class="samp">
+                    <div class="col-md-4">
+                      <label class="lable_title pull-right" for="Bed rooms">Facing
+                        <span class="cc914">*</span>:</label>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="ad_rgt">
+                        <select [(ngModel)]="facing.selectedListValue" name="facingVal" class="form-control clr" #facingValue="ngModel" required>
+                          <option selected="selected" disabled>Please select Facing</option>
+                          <option *ngFor="let facing1 of facing.listValues|sortFilterArray" [ngValue]="facing1">{{facing1.listValue}}</option>
+                        </select>
+                        <div [hidden]="facingValue.valid || !validatePostAdsForm.submitted" class="cc914"> Facing is required</div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <!-- properties attribute end -->
+
+
+
+
+                  <div *ngIf="isTemplateFound" class="samp">
+                    <div class="col-md-4">
+                      <label class="lable_title pull-right" for="Description">Description
+                        <span class="cc914">*</span>:</label>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="ad_rgt">
+                        <textarea [(ngModel)]="this.postadDto.objectDescription" name="postDescription" class="form-control clr" rows="5" id="comment"
+                          #descriptionValue="ngModel" minlength="20" maxlength="1900" required></textarea>
+                      </div>
+                      <div [hidden]="descriptionValue.valid || !validatePostAdsForm.submitted" class="cc914"> Description is required, min of 20 characters to max of 1900 characters</div>
+                    </div>
+                  </div>
+                  <div class="samp">
+                    <div class="col-md-4">
+                      <label class="lable_title pull-right" for="Add Images">Add Images
+                        <span class="cc914">*</span>:</label>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="ad_rgt">
+                        <div class="ford">
+                          <p>
+                            <input type='file' (change)="fileChange($event,'#blah1')" accept="image/gif, image/jpeg, image/png" />
+                            <img id="blah1" src="#" alt="your image" />
+                          </p>
+                        </div>
+                        <div class="ford">
+                          <p>
+                            <input type='file' (change)="fileChange($event,'#blah2')" accept="image/gif, image/jpeg, image/png" />
+                            <img id="blah2" src="#" alt="your image" />
+                          </p>
+                        </div>
+                        <div class="ford">
+                          <p>
+                            <input type='file' (change)="fileChange($event,'#blah3')" accept="image/gif, image/jpeg, image/png" />
+                            <img id="blah3" src="#" alt="your image" />
+                          </p>
+                        </div>
+                        <div class="ford">
+                          <p>
+                            <input type='file' (change)="fileChange($event,'#blah4')" accept="image/gif, image/jpeg, image/png" />
+                            <img id="blah4" src="#" alt="your image" />
+                          </p>
+                        </div>
+                        <div class="ford">
+                          <p>
+                            <input type='button' value="Upload Files" (click)="uploadFile()" />
+
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div *ngIf="isTemplateFound" class="samp">
+                    <div class="col-md-4">
+                      <label class="lable_title pull-right" for="Phone Number">Name of Advertiser
+                        <span class="cc914">*</span>:</label>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="ad_rgt">
+                        <input [(ngModel)]="posted_by.parameterValue" pattern="^[a-zA-Z\s]*$" name="postedName" type="text" class="form-control clr"
+                          id="Posted_by" #postedNameValue="ngModel" minlength="5" maxlength="25" required>
+                        <span *ngIf="!postedNameValue.valid">
+                          <div [hidden]="!postedNameValue.hasError('required') || !validatePostAdsForm.submitted" class="cc914"> Name of advertiser is required</div>
+                          <div *ngIf="!postedNameValue.errors.required" [hidden]="(!postedNameValue.hasError('pattern') && postedNameValue.valid && !postedNameValue.errors.minlength && !postedNameValue.errors.maxlength) || !validatePostAdsForm.submitted"
+                            class="cc914"> Set a realistic name of advertiser min of 5 characters to max of 25 characters</div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div *ngIf="isTemplateFound" class="samp">
+                    <div class="col-md-4">
+                      <label class="lable_title pull-right" for="Phone Number">Email id
+                        <span class="cc914">*</span>:</label>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="ad_rgt">
+                        <input [(ngModel)]="email.parameterValue" name="postedEmail" type="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                          class="form-control clr" id="Email_id" #emailValue="ngModel" required>
+                        <span *ngIf="!emailValue.valid">
+                          <div [hidden]="!emailValue.hasError('required') || !validatePostAdsForm.submitted" class="cc914"> Email Id is required</div>
+                          <div *ngIf="!emailValue.errors.required" [hidden]="(!emailValue.hasError('pattern')&& emailValue.valid) || !validatePostAdsForm.submitted"
+                            class="cc914"> Set a realistic Email Id</div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="isTemplateFound" class="samp">
+                    <div class="col-md-4">
+                      <label class="lable_title pull-right" for="Phone Number">Mobile Number
+                        <span class="cc914">*</span>:</label>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="ad_rgt">
+                        <input [(ngModel)]="phoneNumber.parameterValue" name="phoneVal" type="text" pattern="^[0-9]*$" class="form-control clr" minlength="10"
+                          maxlength="10" id="phone_number" #phoneValue="ngModel" [disabled]="mobileValidationStatus">
+
+                        <div *ngIf="!phoneNumber.parameterValue" [hidden]="!mobileValidationStatus===false || !validatePostAdsForm.submitted" class="cc914"> Mobile number is required</div>
+                        <span *ngIf="!phoneValue.valid">
+                          <div *ngIf="phoneNumber.parameterValue.length >0" [hidden]="(!phoneValue.hasError('pattern') && phoneValue.valid && !phoneValue.errors.minlength && !phoneValue.errors.maxlength) || !validatePostAdsForm.submitted"
+                            class="cc914"> Set a realistic mobile number</div>
+                        </span>
+                        <div *ngIf="otpErrorMessage"
+                          class="cc914"> {{otpErrorMessage}}</div>
+                        <span class="suffix" *ngIf="!mobileValidationStatus">
+                          <button type="button" (click)="sendOtp()" class="btn btn-success" [disabled]="!phoneValue.valid || phoneNumber.parameterValue=== null||phoneNumber.parameterValue===''" data-target="#phoneModal">Generate OTP</button>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="isTemplateFound" class="samp">
+                    <div class="col-md-4">
+                      <label class="lable_title pull-right" for="City">City
+                        <span class="cc914">*</span>:</label>
+                    </div>
+                    <div class="col-md-8">
+
+                      <div class="ad_rgt">
+                        <input type="text" class="form-control clr" name="cityVal" [(ngModel)]="citySearchText" #cityValue="ngModel" (ngModelChange)=onCitySearchChanges(citySearchText);
+                          required>
+                        <ul *ngIf="!postadDto.cityId">
+                          <li *ngFor="let city of allCities | searchFilter : citySearchText" (click)="selectCity($event, city);">
+                            <a class="popular-cities" *ngIf="citySearchText.length > 2 ">{{ city }}</a>
+                          </li>
+                        </ul>
+
+                        <div *ngIf="!cityValue.valid" [hidden]="!cityValue.errors.required || !validatePostAdsForm.submitted" class="cc914"> City is required</div>
+                        <div *ngIf="cityValue.valid && !postadDto.cityId && validatePostAdsForm.submitted" class="cc914">Select realistic city name</div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="isTemplateFound" class="samp">
+                    <div class="col-md-4">
+                      <label class="lable_title pull-right" for="Locality">Locality:</label>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="ad_rgt">
+                        <input type="text" class="form-control clr" id="locality">
+                        <!-- <div [hidden]="localityValue.valid" class="cc914"> Locality is required</div> -->
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="isTemplateFound" class="samp">
+                    <div class="col-md-4"> </div>
+                    <div class="col-md-8">
+                      <div class="ad_rgt">
+
+                        <button type="button" class="btn btn-primary" (click)="postAnAd(validatePostAdsForm)">Post Ad</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </fieldset>
+
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- phone number popup -->
+<app-post-ad-verify-phonenumber #verifyOTPModel (updateVerifyStatus)=updateStatusVerify($event)></app-post-ad-verify-phonenumber>
+<!-- Post_free end
+================================================== -->

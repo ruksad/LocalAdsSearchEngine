@@ -1,0 +1,120 @@
+<div class="col-sm-10 col-md-10">
+  <div class="panel panel-default">
+
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        <a>Ads by Google </a>
+      </h3>
+    </div>
+
+    <!-- vehicles_list start -->
+    <div *ngIf="!viewOptionSelected && forSaleObjectResponseData" class="vehicles_list">
+      <div class="vehiclesRow" *ngFor="let product of forSaleObjectResponseData | filterVechiles:filterObject|filterBedrooms:selectedFurinitureBedroom|sortBy:selectSortValue.value">
+        <a (click)="openModelpageDescription(product)">
+          <div class="vehiclesImage">
+            <img src={{product.image}} alt="">
+          </div>
+
+          <div class="vehiclesMain">
+            <div class="price">
+              <strong>
+                <i class="fa fa-rupee"></i>{{product.price}}</strong>
+            </div>
+            <span class="textHeader truncate-list-text">{{product.name |titleCase}},</span>
+            <br>
+            <span class="textHeader">
+              <span *ngIf="product.bedrooms">{{product.bedrooms |uppercase}}</span>
+              <span *ngIf="product.carpet_area">{{product.carpet_area}}sqft</span>
+              <span *ngIf="product.object_type_name">{{product.object_type_name |titleCase}}</span>
+              <span *ngIf="product.model">{{product.model |titleCase}}</span>
+              <span *ngIf="product.color">{{product.color |titleCase}}</span>
+              <span *ngIf="product.year">{{product.year}}</span>
+              <span *ngIf="product.condition">{{product.condition|lowercase}}</span>
+              <span *ngIf="product.furnishing">{{product.furnishing}}</span>
+              <span *ngIf="product.facing">{{product.facing |titleCase}} Facing</span>
+            </span>
+            <span class="textLoc" *ngIf="SelectedStateData.city.cityName">, {{SelectedStateData.city.cityName |titleCase}}</span>
+            <span class="textDesc">
+              <img src="assets/images/Verified-Icon.png" alt="image">
+            </span>
+            <span class="textKms" *ngIf="product.km_driven">{{product.km_driven}} kms</span>
+            <span class="textDate" *ngIf="product.posted_date">{{product.posted_date|moment:"MMM DD"}}</span>
+          </div>
+        </a>
+
+        <!-- bread crums start -->
+        <div class="car_icon textDesc">
+          <ul>
+            <li>
+              <a>{{categoryData.categoryName|titleCase}}</a>
+            </li>
+            <li *ngIf="categoryData.subCategoryName">
+              <a>
+                <i class="fa fa-angle-right"></i>&nbsp; {{categoryData.subCategoryName|titleCase}}</a>
+            </li>
+            <li *ngIf="product.object_type_name">
+              <a>
+                <i class="fa fa-angle-right"></i>&nbsp; {{product.object_type_name|titleCase}}</a>
+            </li>
+          </ul>
+        </div>
+        <!-- breadcrums end -->
+      </div>
+
+    </div>
+
+    <!-- Gallery-view start -->
+    <div *ngIf="viewOptionSelected && forSaleObjectResponseData" class="row">
+      <div class="col-md-3" *ngFor="let product of forSaleObjectResponseData | filterVechiles:filterObject|filterBedrooms:selectedFurinitureBedroom|sortBy:selectSortValue.value">
+        <div class="vehiclesGallery">
+          <a (click)="openModelpageDescription(product)">
+            <div class="vehiclesImage">
+              <p>
+                <img src={{product.image}} alt="">
+              </p>
+              <div class="add_info">
+                <i class="fa fa-rupee"></i>{{product.price}}</div>
+            </div>
+            <div class="vehiclesMain">
+              <div class="textHeader ">
+                <span *ngIf="product.name" class="truncate-text">{{product.name |titleCase}},</span>
+                <br>
+                <span *ngIf="product.bedrooms">{{product.bedrooms |uppercase}}</span>
+                <span *ngIf="product.carpet_area">{{product.carpet_area}}sqft</span>
+                <span *ngIf="product.object_type_id">{{product.object_type_id |titleCase}}</span>
+                <span *ngIf="product.model">{{product.model |titleCase}}</span>
+                <span *ngIf="product.furnishing">{{product.furnishing}}</span>
+                <span *ngIf="product.facing">{{product.facing |titleCase}} Facing</span>
+                <span class="textLoc" *ngIf="SelectedStateData.city.cityName">, {{SelectedStateData.city.cityName |titleCase}}</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Gallery-view end -->
+
+    <div *ngIf="!forSaleObjectResponseData" class="vehicles_list">
+      <div class="vehiclesRow">
+        <div class="vehiclesMain">
+          <span class="textHeader" *ngIf="errorResponse">{{errorResponse.error.errorDescription}}</span>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- if model is not present -->
+    <span *ngIf="forSaleObjectResponseData">
+      <div *ngIf="(forSaleObjectResponseData | filterVechiles:filterObject |filterBedrooms:selectedFurinitureBedroom).length ===0" class="vehicles_list">
+        <div class="vehiclesRow">
+          <div class="vehiclesMain">
+            <span class="textHeader">Selected model is not present for this city or state</span>
+          </div>
+        </div>
+      </div>
+    </span>
+
+    <app-for-sale-view-description  #childModal></app-for-sale-view-description>
+  </div>
+</div>

@@ -1,0 +1,168 @@
+<section  class="bnr">
+  <form class="col-sm-12" id="searchForm">
+    <div class="form-group col-sm-10 col-sm-offset-1">
+      <div class="form-group" style="display:inline;">
+        <div class="input-group">
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">{{categoriesPlaceHolder}} <span class="glyphicon glyphicon-chevron-down"></span></button>
+            <ul class="dropdown-menu"  *ngIf="allCategories">
+              <li><a href="javascript:void(0)"><i class="fa fa-th-large" aria-hidden="true"></i>&nbsp; All Categories</a></li>
+              <li class="dropdown-submenu"> <a tabindex="-1" href="javascript:void(0)" (click)="selectCategory('FURNITURE')"><i class="fa fa-bed" aria-hidden="true"></i>&nbsp; Furniture</a>
+                <ul class="dropdown-menu" >
+                  <li class="dropdown-submenu" *ngFor="let subcategory of fectCategroyObject('FURNITURE')['childObjectTypes']" >
+                    <a (click)="selectCategory(subcategory,'FURNITURE')">{{subcategory.objectTypename}}</a>
+                    <ul *ngIf="subcategory['childObjectTypes'].length>0" class="dropdown-menu">
+                      <li *ngFor="let innerSubcategory of subcategory['childObjectTypes']">
+                        <a (click)="selectCategory(innerSubcategory,'FURNITURE',subcategory.objectTypename)">{{innerSubcategory.objectTypename}}</a>
+                      </li>
+
+                    </ul>
+                </li>
+                </ul>
+              </li>
+
+              <li class="dropdown-submenu"> <a tabindex="-1" href="javascript:void(0)" (click)="selectCategory('PROPERTIES')"><i class="fa fa-home" aria-hidden="true"></i>&nbsp; Properties</a>
+                <ul class="dropdown-menu" >
+                  <li class="dropdown-submenu" *ngFor="let subcategory of fectCategroyObject('PROPERTIES')['childObjectTypes']" >
+                    <a (click)="selectCategory(subcategory,'PROPERTIES')">{{subcategory['objectTypename']}}</a>
+                    <ul *ngIf="subcategory['childObjectTypes'].length>0" class="dropdown-menu">
+                      <li *ngFor="let innerSubcategory of subcategory['childObjectTypes']">
+                        <a (click)="selectCategory(innerSubcategory,'PROPERTIES',subcategory.objectTypename)">{{innerSubcategory.objectTypename}}</a>
+                      </li>
+
+                    </ul>
+                </li>
+                </ul>
+              </li>
+
+              <li class="dropdown-submenu"> <a tabindex="-1" href="javascript:void(0)" (click)="selectCategory('VEHICLES')"><i class="fa fa-car" aria-hidden="true"></i>&nbsp; Vehicles</a>
+                <ul class="dropdown-menu" >
+                  <li class="dropdown-submenu" *ngFor="let subcategory of fectCategroyObject('VEHICLES')['childObjectTypes']" >
+                    <a (click)="selectCategory(subcategory,'VEHICLES')">{{subcategory['objectTypename']}}</a>
+                    <ul *ngIf="subcategory['childObjectTypes'].length>0" class="dropdown-menu">
+                      <li *ngFor="let innerSubcategory of subcategory['childObjectTypes']">
+                        <a (click)="selectCategory(innerSubcategory,'VEHICLES',subcategory.objectTypename)">{{innerSubcategory.objectTypename}}</a>
+                      </li>
+
+                    </ul>
+                </li>
+                </ul>
+              </li>
+
+              <li class="dropdown-submenu"> <a tabindex="-1" href="javascript:void(0)" (click)="selectCategory('ELECTRONICS & HOME APPLIANCES')"><i class="fa fa-desktop" aria-hidden="true"></i>&nbsp; Electronics & Home Appliances</a>
+                <ul class="dropdown-menu" >
+                  <li class="dropdown-submenu" *ngFor="let subcategory of fectCategroyObject('ELECTRONICS & HOME APPLIANCES')['childObjectTypes']" >
+                    <a (click)="selectCategory(subcategory,'ELECTRONICS & HOME APPLIANCES')">{{subcategory['objectTypename']}}</a>
+                    <ul *ngIf="subcategory['childObjectTypes'].length>0" class="dropdown-menu">
+                      <li *ngFor="let innerSubcategory of subcategory['childObjectTypes']">
+                        <a (click)="selectCategory(innerSubcategory,'ELECTRONICS & HOME APPLIANCES',subcategory.objectTypename)">{{innerSubcategory.objectTypename}}</a>
+                      </li>
+
+                    </ul>
+                </li>
+                </ul>
+              </li>
+
+              <li class="dropdown-submenu"> <a tabindex="-1" href="javascript:void(0)" (click)="selectCategory('PETS')"><i class="fa fa-paw"></i>&nbsp; Pets</a>
+                <ul class="dropdown-menu" >
+                  <li class="dropdown-submenu" *ngFor="let subcategory of fectCategroyObject('PETS')['childObjectTypes']" >
+                    <a (click)="selectCategory(subcategory,'PETS')">{{subcategory['objectTypename']}}</a>
+                    <ul *ngIf="subcategory['childObjectTypes'].length>0" class="dropdown-menu">
+                      <li *ngFor="let innerSubcategory of subcategory['childObjectTypes']">
+                        <a (click)="selectCategory(innerSubcategory,'PETS',subcategory.objectTypename)">{{innerSubcategory.objectTypename}}</a>
+                      </li>
+
+                    </ul>
+                </li>
+                </ul>
+              </li>
+
+              <li class="dropdown-submenu"> <a tabindex="-1" href="javascript:void(0)" (click)="selectCategory('KIDS')"><i class="fa fa-child" aria-hidden="true"></i>&nbsp; Kids</a>
+                <ul class="dropdown-menu" >
+                  <li class="dropdown-submenu" *ngFor="let subcategory of fectCategroyObject('KIDS')['childObjectTypes']" >
+                    <a (click)="selectCategory(subcategory,'KIDS')">{{subcategory['objectTypename']}}</a>
+                    <ul *ngIf="subcategory['childObjectTypes'].length>0" class="dropdown-menu">
+                      <li *ngFor="let innerSubcategory of subcategory['childObjectTypes']">
+                        <a (click)="selectCategory(innerSubcategory,'KIDS',subcategory.objectTypename)">{{innerSubcategory.objectTypename}}</a>
+                      </li>
+
+                    </ul>
+                </li>
+                </ul>
+              </li>
+
+              <li class="dropdown-submenu"> <a tabindex="-1" href="javascript:void(0)" (click)="selectCategory('SERVICES')"><i class="fa fa-address-book-o" aria-hidden="true"></i>&nbsp; Services</a>
+                <ul class="dropdown-menu" >
+                  <li class="dropdown-submenu" *ngFor="let subcategory of fectCategroyObject('SERVICES')['childObjectTypes']" >
+                    <a (click)="selectCategory(subcategory,'SERVICES')">{{subcategory['objectTypename']}}</a>
+                    <ul *ngIf="subcategory['childObjectTypes'].length>0" class="dropdown-menu">
+                      <li *ngFor="let innerSubcategory of subcategory['childObjectTypes']">
+                        <a (click)="selectCategory(innerSubcategory,'SERVICES',subcategory.objectTypename)">{{innerSubcategory.objectTypename}}</a>
+                      </li>
+
+                    </ul>
+                </li>
+                </ul>
+              </li>
+
+              <li class="dropdown-submenu"> <a tabindex="-1" href="javascript:void(0)" (click)="selectCategory('JOBS')"><i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp; Jobs</a>
+                <ul class="dropdown-menu" >
+                  <li class="dropdown-submenu" *ngFor="let subcategory of fectCategroyObject('JOBS')['childObjectTypes']" >
+                    <a (click)="selectCategory(subcategory,'JOBS')">{{subcategory['objectTypename']}}</a>
+                    <ul *ngIf="subcategory['childObjectTypes'].length>0" class="dropdown-menu">
+                      <li *ngFor="let innerSubcategory of subcategory['childObjectTypes']">
+                        <a (click)="selectCategory(innerSubcategory,'JOBS',subcategory.objectTypename)">{{innerSubcategory.objectTypename}}</a>
+                      </li>
+
+                    </ul>
+                </li>
+                </ul>
+              </li>
+
+              <li class="dropdown-submenu"> <a tabindex="-1" href="javascript:void(0)" (click)="selectCategory(definedConstantsService.BOOKS_SOFTWARE_TEMPLATE)"><i class="fa fa-book" aria-hidden="true"></i>&nbsp; Events & Software</a>
+                <ul class="dropdown-menu" >
+                  <li class="dropdown-submenu" *ngFor="let subcategory of fectCategroyObject(definedConstantsService.BOOKS_SOFTWARE_TEMPLATE)['childObjectTypes']" >
+                    <a (click)="selectCategory(subcategory,definedConstantsService.BOOKS_SOFTWARE_TEMPLATE)">{{subcategory['objectTypename']}}</a>
+                    <ul *ngIf="subcategory['childObjectTypes'].length>0" class="dropdown-menu">
+                      <li *ngFor="let innerSubcategory of subcategory['childObjectTypes']">
+                        <a (click)="selectCategory(innerSubcategory,definedConstantsService.BOOKS_SOFTWARE_TEMPLATE,subcategory.objectTypename)">{{innerSubcategory.objectTypename}}</a>
+                      </li>
+
+                    </ul>
+                </li>
+                </ul>
+              </li>
+
+              <li class="dropdown-submenu"> <a tabindex="-1" href="javascript:void(0)" (click)="selectCategory(definedConstantsService.FASHION_BEAUTY_TEMPLATE)"><img src="/assets/images/fashion-icon.png" alt="">&nbsp; Fashion & Beauty</a>
+                <ul class="dropdown-menu" >
+                  <li class="dropdown-submenu" *ngFor="let subcategory of fectCategroyObject(definedConstantsService.FASHION_BEAUTY_TEMPLATE)['childObjectTypes']" >
+                    <a (click)="selectCategory(subcategory,definedConstantsService.FASHION_BEAUTY_TEMPLATE)">{{subcategory['objectTypename']}}</a>
+                    <ul *ngIf="subcategory['childObjectTypes'].length>0" class="dropdown-menu">
+                      <li *ngFor="let innerSubcategory of subcategory['childObjectTypes']">
+                        <a (click)="selectCategory(innerSubcategory,definedConstantsService.FASHION_BEAUTY_TEMPLATE,subcategory.objectTypename)">{{innerSubcategory.objectTypename}}</a>
+                      </li>
+
+                    </ul>
+                </li>
+                </ul>
+              </li>
+
+
+
+
+
+
+
+
+
+
+
+
+            </ul>
+          </div>
+          <input class="form-control" placeholder="What are searching for?" type="text">
+          <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span> </span> </div>
+      </div>
+    </div>
+  </form>
+</section>

@@ -1,0 +1,70 @@
+{
+  "objectTypeLevel2CategoryId": 90000006,
+  "objectTypeId": 90000018,
+  "cityId": 60000018,
+  "localityId": null,
+  "attributeDTOList": [
+    {
+      "attributeId": 50000001,
+      "attributeName": "Price",
+      "attributeDescription": "COST OF OBJECT",
+      "listValues": null,
+      "parameterValue": "50000",
+      "selectedListValue": null,
+      "attributeType": null,
+      "others": {}
+    },
+    {
+      "attributeId": 50000009,
+      "attributeName": "Condition",
+      "attributeDescription": "CONDITION",
+      "listValues": null,
+      "parameterValue": "In good condition",
+      "selectedListValue": null,
+      "attributeType": null,
+      "others": {}
+    },
+    {
+      "attributeId": 50000013,
+      "attributeName": "Telephone",
+      "attributeDescription": "Telephone",
+      "listValues": null,
+      "parameterValue": "9552901916",
+      "selectedListValue": null,
+      "attributeType": null,
+      "others": {}
+    },
+    {
+      "attributeId": 50000021,
+      "attributeName": "Image",
+      "attributeDescription": "Image Location",
+      "listValues": null,
+      "parameterValue": "abcd",
+      "selectedListValue": null,
+      "attributeType": null,
+      "others": {}
+    },
+    {
+      "attributeId": 50000023,
+      "attributeName": "Posted By",
+      "attributeDescription": "Posted By",
+      "listValues": null,
+      "parameterValue": "ruksad",
+      "selectedListValue": null,
+      "attributeType": null,
+      "others": {}
+    },
+    {
+      "attributeId": 50000024,
+      "attributeName": "Posted Date",
+      "attributeDescription": "Posted Date",
+      "listValues": null,
+      "parameterValue": null,
+      "selectedListValue": null,
+      "attributeType": null,
+      "others": {}
+    }
+  ],
+  "objectDescription": "Test dining set",
+  "name": "Dining set"
+}
